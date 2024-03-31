@@ -14,12 +14,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, re_path
 from vulnerable_app import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin1/', views.admin1, name='admin1'),
     path('admin2/', views.admin2, name='admin2'),
-    path('admin3/', views.admin3, name='admin3'),
-    path('admin4/', views.admin4, name='admin4'),
-]
+    re_path(r'.*', views.redirect_to_admin1),
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

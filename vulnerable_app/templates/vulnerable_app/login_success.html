@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Success</title>
+</head>
+<body>
+    <h1>Welcome, Admin!</h1>
+    <div>
+        <button onclick="goBack()">Back to Login</button>
+    </div>
+    <div>
+        {% if media_type == 'image' %}
+            <img src="{% static 'images/'|add:media_name %}" style="margin-top:20px;" alt="Image">
+        {% elif media_type == 'video' %}
+            <video controls style="margin-top:20px;">
+                <source src="{% static 'videos/'|add:media_name %}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        {% endif %}
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

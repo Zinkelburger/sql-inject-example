@@ -7,7 +7,7 @@ def delete_default_user(apps, schema_editor):
     User.objects.filter(username='admin').delete()
 
 def create_default_user(apps, schema_editor):
-    User.objects.create_user(username='admin', password=''w3Moja47">gr<lON{gESBy<?!U*6}]/k}CQ[eB;5+~3vbDcB!')
+    User.objects.create_user(username='admin', password='KV6lFDNn6K579EqqY6BIUsL4bcwNdMLNfQbAUhSzmhhrz2I0w4')
 
 class Migration(migrations.Migration):
 
